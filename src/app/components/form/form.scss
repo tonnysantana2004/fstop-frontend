@@ -1,0 +1,7 @@
+@use "abstracts" as *;
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: vwsize(50px);
+
+}

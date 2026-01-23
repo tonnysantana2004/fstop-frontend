@@ -1,0 +1,17 @@
+div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    & hr {
+        width: 100%;
+    }
+
+    & p {
+        position:absolute;
+        background-color: white;
+        padding: 0 2em
+    }
+}

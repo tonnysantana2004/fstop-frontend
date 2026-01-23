@@ -1,18 +1,16 @@
 <main>
 
-    <section>
-        <img src="/assets/webp/logo.webp" alt="" class="logo">
-        <h1>Bem vindo de volta!</h1>
- 
-        <form action="">
-            <button>Prosseguir com o login</button>
-        </form>
-        
-        <span>Não tem uma conta? Façoa seu login</span>
+    <section class="main-section">
+        <img src="/assets/webp/logo.webp" alt="" class="logo" height="51" width="178">
+
+        <div class="form-wrapper">
+            <h1 class="title-4">{{ title }}</h1>
+            <ng-content/>
+        </div>
     </section>
 
-    <section>
-        <img src="/assets/webp/login-banner.webp" alt="" class="banner">
+    <section class="banner-section">
+        <img src="/assets/webp/login-banner-4.webp" loading="eager">
     </section>
 
 </main>

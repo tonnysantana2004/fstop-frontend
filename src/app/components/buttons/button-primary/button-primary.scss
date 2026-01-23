@@ -1,0 +1,26 @@
+@use "abstracts" as *;
+
+button {
+    background-color: $primary-color;
+    color: white;
+    padding: 0 $inputPadding;
+    border-radius: $borderRadius;
+    cursor: pointer;
+    height: vwsize($inputHeight);
+    width: 100%;
+    transition:opacity 0.34s, border-color 0.14s, background-color 0.34s;
+
+    &.outline {
+        color: $primary-color;
+        background-color: white;
+        border:solid 1px $primary-color;
+        &:hover {
+            background-color: color-mix(in srgb, $accent-color 10%, transparent);
+            border:solid 1px color-mix(in srgb, $accent-color 40%, transparent);
+        }
+    }
+
+    &:not(.outline):hover {
+        opacity: 0.8;
+    }
+}

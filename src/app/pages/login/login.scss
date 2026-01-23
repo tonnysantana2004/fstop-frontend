@@ -1,0 +1,13 @@
+@use "abstracts" as *;
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: vwsize($space-md);
+}
+.password-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
