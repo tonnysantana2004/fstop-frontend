@@ -1,0 +1,38 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Angular build
+/dist
+/tmp
+/out-tsc
+
+# Angular cache
+/.angular/cache
+
+# Environment files (opcional)
+# Descomente se NÃO quiser versionar environment.ts
+# src/environments/environment*.ts
+
+# IDEs e SO
+/.idea
+/.vscode
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Coverage
+/coverage
+
+# Logs
+logs
+*.log
+
+# Testes
+/.karma
+
+# Compilados
+*.tsbuildinfo
