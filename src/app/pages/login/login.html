@@ -1,17 +1,15 @@
-<app-default-login-layout
-        title="Entre na sua conta"
->
-    <app-form>
+<app-default-login-layout title="Entre na sua conta">
+    <form [formGroup]="loginForm" style="display: contents">
         <div class="form-fields">
-            <app-text-field label="Usuário"></app-text-field>
-            <app-text-field label="Password"></app-text-field>
+            <app-text-field label="Usuário" inputName="userName"></app-text-field>
+            <app-text-field label="Password" inputName="password"></app-text-field>
             <div class="password-actions">
-                <app-checkbox-field label="Continuar conectado?"></app-checkbox-field>
+                <app-checkbox-field label="Continuar conectado?" inputName="rememberMe"></app-checkbox-field>
                 <a href="#">Esqueci minha senha</a>
             </div>
         </div>
-        <app-button-primary buttonText="Entrar"/>
+        <app-button-primary buttonText="Entrar" actionFn="submit" (submit)="submit()" />
         <app-divider dividerText="Ou"></app-divider>
-        <app-button-primary buttonText="Criar uma conta" [outline]="true"/>
-    </app-form>
+        <app-button-primary buttonText="Criar uma conta" [outline]="true" actionFn="navigate" (navigate)="navigate()" />
+    </form>
 </app-default-login-layout>

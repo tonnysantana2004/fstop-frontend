@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {NgClass} from "@angular/common";
 
 @Component({
@@ -11,5 +11,20 @@ import {NgClass} from "@angular/common";
 })
 export class ButtonPrimary {
     @Input() buttonText: string = "";
+    @Input() actionFn: string = "";
     @Input() outline: boolean = false;
+
+    @Output("submit") onSubmit = new EventEmitter();
+    @Output("navigate") onNavigate = new EventEmitter();
+
+    action(action: string): void {
+        switch (action) {
+            case "submit":
+                this.onSubmit.emit();
+                break;
+            case "navigate":
+                this.onNavigate.emit();
+        }
+    }
+
 }
