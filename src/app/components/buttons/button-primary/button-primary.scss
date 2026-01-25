@@ -23,4 +23,8 @@ button {
     &:not(.outline):hover {
         opacity: 0.8;
     }
+
+    &:disabled {
+        opacity: .8;
+    }
 }

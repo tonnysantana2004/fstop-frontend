@@ -13,18 +13,5 @@ export class ButtonPrimary {
     @Input() buttonText: string = "";
     @Input() actionFn: string = "";
     @Input() outline: boolean = false;
-
-    @Output("submit") onSubmit = new EventEmitter();
-    @Output("navigate") onNavigate = new EventEmitter();
-
-    action(action: string): void {
-        switch (action) {
-            case "submit":
-                this.onSubmit.emit();
-                break;
-            case "navigate":
-                this.onNavigate.emit();
-        }
-    }
-
+    @Input() btnDisabled : boolean = false;
 }
