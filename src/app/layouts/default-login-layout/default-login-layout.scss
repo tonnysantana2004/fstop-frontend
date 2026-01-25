@@ -11,7 +11,7 @@ main {
     flex-direction: column;
     justify-content: start;
     padding: vwsize($space-2xl) vwsize(220px);
-    gap: vwsize(130px);
+    gap: vwsize(100px);
     box-shadow: 17px 0 17px -3px #00000024;
     z-index: 1;
 
@@ -23,7 +23,7 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: vwsize($space-lg);
+        gap: vwsize(35px);
     }
 
 }

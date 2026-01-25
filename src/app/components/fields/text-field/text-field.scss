@@ -1,9 +1,25 @@
 @use "abstracts" as *;
 
-div {
+
+.field-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & .field-errors{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: vwsize(10px);
+        color: #b70d0d;
+        font-size:.9em;
+    }
+}
+
+.form-field {
     display: flex;
     flex-direction: column;
-    gap: vwsize(15px);
+    gap: vwsize(12px);
 
     & input {
         padding: $inputPadding;
@@ -14,15 +30,15 @@ div {
 
         outline: vwsize(1px) solid transparent;
 
-        transition:outline-color .2s, background-color .2s, border-color .2s;
+        transition: outline-color .2s, background-color .2s, border-color .2s;
 
-        &:focus{
+        &:focus {
             outline: vwsize(1px) solid color-mix(in srgb, $accent-color 80%, transparent);
             border: solid 1px transparent;
             background-color: color-mix(in srgb, $accent-color 10%, transparent);
         }
 
-        &:hover{
+        &:hover {
             outline: vwsize(1px) solid color-mix(in srgb, $accent-color 80%, transparent);
             border: solid 1px transparent;
         }

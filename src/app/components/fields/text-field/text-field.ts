@@ -1,15 +1,23 @@
 import {Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
+import {
+    ControlValueAccessor,
+    FormControl,
+    NG_VALUE_ACCESSOR,
+    ReactiveFormsModule,
+    ValidationErrors
+} from "@angular/forms";
+import {KeyValuePipe} from "@angular/common";
 
 @Component({
     selector: 'app-text-field',
     imports: [
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        KeyValuePipe
     ],
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef( () => TextField),
+            useExisting: forwardRef(() => TextField),
             multi: true
         }
     ],
@@ -19,11 +27,33 @@ import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, ReactiveFormsModul
 export class TextField implements ControlValueAccessor {
 
     @Input() label: string = "Preencha o label";
-    value : string = "";
-    disabled : boolean = false;
+    @Input() placeholder: string = "";
+    value: string = "";
+    disabled: boolean = false;
 
-    onChange : any = (value : any) => {};
-    onTouched : any = () => {};
+    @Input() errors: ValidationErrors | null | undefined = null;
+
+    get errorMessages(): string[] {
+        if (!this.errors) return [];
+
+        return Object.keys(this.errors).map(key => {
+            switch (key) {
+                case "required":
+                    return this.label + " é obrigatório."
+                case 'email':
+                    return 'E-mail inválido.';
+                case 'minlength':
+                    return 'Mínimo de caracteres não atingido.';
+                default:
+                    return  this.label + ' tem um valor inválido.';
+            }
+        })
+    }
+
+    onChange: any = (value: any) => {
+    };
+    onTouched: any = () => {
+    };
 
     writeValue(value: any): void {
         this.value = value;

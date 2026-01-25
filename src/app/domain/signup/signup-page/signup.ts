@@ -14,8 +14,7 @@ import {SignupService} from "../signup.service";
     providers: [
         SignupService,
     ],
-    templateUrl: './signup.html',
-    styleUrl: './signup.scss',
+    templateUrl: './signup.html'
 })
 export class Signup {
     signupForm!: FormGroup;
@@ -30,7 +29,7 @@ export class Signup {
         })
     }
 
-    @Input() signupOptions = {
+    @Input() LayoutOptions = {
         bannerImg: "/assets/webp/login-banner-3.webp",
         submitBtnText: "Criar",
         navigateBtnText: "Faça seu login",

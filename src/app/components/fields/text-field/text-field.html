@@ -1,4 +1,18 @@
-<div>
+<div class="form-field">
+
     <label for="">{{ label }}</label>
-    <input type="text" [value]="value" [disabled]="disabled" (input)="onChange($event.target.value)"  (blur)="onTouched()">
+    <input type="text" [placeholder]="placeholder" [value]="value" [disabled]="disabled" (input)="onChange($event.target.value)"
+           (blur)="onTouched()">
+
+    <div class="field-footer">
+
+        <span class="field-errors">
+
+            @for (erro of errorMessages ; track $index) {
+                <p>{{ erro }}</p>
+            }
+
+        </span>
+
+    </div>
 </div>

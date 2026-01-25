@@ -3,7 +3,7 @@
 button {
     background-color: $primary-color;
     color: white;
-    padding: 0 $inputPadding;
+    padding: $inputPadding;
     border-radius: $borderRadius;
     cursor: pointer;
     height: vwsize($inputHeight);

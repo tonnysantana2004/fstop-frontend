@@ -1,8 +1,16 @@
-<app-default-login-layout title="Entre na sua conta" (onSubmit)="submit()" (onNavigate)="navigate()" [options]="loginOptions">
+<app-default-login-layout title="Entre na sua conta" (onSubmit)="submit()" (onNavigate)="navigate()" [options]="LayoutOptions">
     <form [formGroup]="loginForm" style="display: contents">
         <div class="form-fields">
-            <app-text-field label="Usuário"formControlName="userName"></app-text-field>
-            <app-text-field label="Password" formControlName="password"></app-text-field>
+            <app-text-field label="Email"formControlName="userName" placeholder="Digite seu e-mail" [errors]="
+                            loginForm.get('userName')?.invalid && (loginForm.get('userName')?.dirty || loginForm.get('userName')?.touched)
+                            ? loginForm.get('userName')?.errors
+                            : null
+            " ></app-text-field>
+            <app-text-field label="Senha" formControlName="password" placeholder="Digite sua senha" [errors]="
+                            loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
+                            ? loginForm.get('password')?.errors
+                            : null
+            "></app-text-field>
             <div class="password-actions">
                 <app-checkbox-field label="Continuar conectado?" ></app-checkbox-field>
                 <a href="#">Esqueci minha senha</a>

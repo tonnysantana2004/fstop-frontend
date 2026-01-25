@@ -15,28 +15,35 @@ import {LoginService} from "../login.service";
     providers: [
         LoginService,
     ],
-    templateUrl: './login.html',
-    styleUrl: './login.scss',
+    templateUrl: './login.html'
 })
 export class Login {
     loginForm!: FormGroup;
     toastr = inject(ToastrService);
 
-    @Input() loginOptions = {
+    @Input() LayoutOptions = {
         title: "Entre na sua conta",
         submitBtnText: "Entrar",
         navigateBtnText: "Criar uma conta",
-        bannerImg: "/assets/webp/login-banner-2.webp",
+        bannerImg: "/assets/webp/login-banner.webp",
         disableSubmit: this.loginForm?.valid
     }
 
     constructor(private router: Router, private loginService: LoginService) {
         this.loginForm = new FormGroup({
-            userName: new FormControl('', [Validators.minLength(3), Validators.required]),
-            password: new FormControl(''),
+            userName: new FormControl('', {
+                validators: [Validators.required, Validators.minLength(3)],
+                // updateOn: 'blur'
+            }),
+            password: new FormControl('', {
+                validators: Validators.required,
+                // updateOn: 'blur'
+            }),
+
             // rememberMe: new FormControl(false)
         })
     }
+
 
     submit() {
         this.loginService.login(this.loginForm.value.userName, this.loginForm.value.password).subscribe({
