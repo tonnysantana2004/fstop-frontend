@@ -1,4 +1,4 @@
-<app-default-login-layout title="Entre na sua conta" (onSubmit)="submit()" (onNavigate)="navigate()" [disablePrimaryButton]="!loginForm.valid" >
+<app-default-login-layout title="Entre na sua conta" (onSubmit)="submit()" (onNavigate)="navigate()" [options]="loginOptions">
     <form [formGroup]="loginForm" style="display: contents">
         <div class="form-fields">
             <app-text-field label="Usuário"formControlName="userName"></app-text-field>

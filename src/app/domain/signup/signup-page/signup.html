@@ -1,0 +1,13 @@
+<app-default-login-layout title="Crie sua conta" (onSubmit)="submit()" (onNavigate)="navigate()" [options]="signupOptions">
+    <form [formGroup]="signupForm" style="display: contents">
+        <div class="form-fields">
+            <app-text-field label="Primeiro Nome" formControlName="firstName"></app-text-field>
+            <app-text-field label="Usuário" formControlName="userName"></app-text-field>
+            <app-text-field label="Password" formControlName="password"></app-text-field>
+            <div class="password-actions">
+                <app-checkbox-field label="Continuar conectado?" ></app-checkbox-field>
+                <a href="#">Esqueci minha senha</a>
+            </div>
+        </div>
+    </form>
+</app-default-login-layout>

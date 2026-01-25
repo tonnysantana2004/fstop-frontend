@@ -1,0 +1,15 @@
+<main>
+    <section class="main-section">
+        <img src="/assets/webp/logo.webp" alt="" class="logo" height="51" width="178">
+        <div class="form-wrapper">
+            <h1 class="title-4">{{ options.title }}</h1>
+            <ng-content ></ng-content>
+            <app-button-primary [buttonText]="options.submitBtnText" (click)="onSubmit.emit()" [btnDisabled]="options.disableSubmit"/>
+            <app-divider dividerText="Ou"></app-divider>
+            <app-button-primary [buttonText]="options.navigateBtnText" [outline]="true" (click)="onNavigate.emit() "/>
+        </div>
+    </section>
+    <section class="banner-section">
+        <img [src]="options.bannerImg" loading="eager">
+    </section>
+</main>

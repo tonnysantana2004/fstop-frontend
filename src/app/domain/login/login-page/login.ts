@@ -1,13 +1,12 @@
-import {Component} from '@angular/core';
-import {DefaultLoginLayout} from "../../layouts/default-login-layout/default-login-layout";
-import {TextField} from "../../components/fields/text-field/text-field";
-import {CheckboxField} from "../../components/fields/checkbox-field/checkbox-field";
+import {Component, Input} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
-import {LoginService} from "../../services/login.service";
 import {ToastrService} from 'ngx-toastr';
 import {inject} from '@angular/core';
-import {validate} from "@angular/forms/signals";
+import {DefaultLoginLayout} from "../../../layouts/default-login-layout/default-login-layout";
+import {TextField} from "../../../components/fields/text-field/text-field";
+import {CheckboxField} from "../../../components/fields/checkbox-field/checkbox-field";
+import {LoginService} from "../login.service";
 
 @Component({
     selector: 'app-login',
@@ -23,9 +22,17 @@ export class Login {
     loginForm!: FormGroup;
     toastr = inject(ToastrService);
 
+    @Input() loginOptions = {
+        title: "Entre na sua conta",
+        submitBtnText: "Entrar",
+        navigateBtnText: "Criar uma conta",
+        bannerImg: "/assets/webp/login-banner-2.webp",
+        disableSubmit: this.loginForm?.valid
+    }
+
     constructor(private router: Router, private loginService: LoginService) {
         this.loginForm = new FormGroup({
-            userName: new FormControl('', [Validators.minLength(3),Validators.required] ),
+            userName: new FormControl('', [Validators.minLength(3), Validators.required]),
             password: new FormControl(''),
             // rememberMe: new FormControl(false)
         })

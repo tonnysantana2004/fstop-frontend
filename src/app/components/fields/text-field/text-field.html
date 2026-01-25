@@ -1,0 +1,4 @@
+<div>
+    <label for="">{{ label }}</label>
+    <input type="text" [value]="value" [disabled]="disabled" (input)="onChange($event.target.value)"  (blur)="onTouched()">
+</div>
