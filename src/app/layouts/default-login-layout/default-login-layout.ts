@@ -16,11 +16,8 @@ import {Divider} from "../../components/divider/divider";
 export class DefaultLoginLayout {
 
     @Input() options = {
-        bannerImg: "/assets/webp/login-banner-4.webp",
-        submitBtnText: "Entrar",
-        navigateBtnText: "Criar uma conta",
         title: "Entre na sua conta",
-        disableSubmit:  false
+        bannerImg: "/assets/webp/login-banner-4.webp"
     }
 
     @Output() onSubmit = new EventEmitter();

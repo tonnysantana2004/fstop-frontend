@@ -1,7 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {tap} from "rxjs";
-import {SignupResponse} from "./signup.response.type";
+import {AxiosService} from "../../axios.service";
 
 @Injectable({
     providedIn: 'root',
@@ -9,20 +7,16 @@ import {SignupResponse} from "./signup.response.type";
 
 export class SignupService {
 
-    constructor(private httpClient: HttpClient) {}
+    constructor(private axiosService: AxiosService) {}
 
-    signup(name: string, password: string) {
-        return this.httpClient.post<SignupResponse>("/signup", {
-            name,
-            password
-        }).pipe(
-            tap(
-                (value) => {
-                    sessionStorage.setItem("auth-token", value.token),
-                    sessionStorage.setItem("user-id", value.userId)
-                }
-            )
-        )
+    signupRequestToBackend(data: object) {
+
+        this.axiosService.request("POST", "/register", data)
+            .then(response => {
+                localStorage.setItem("access_token", response.data.data[0].token)
+                localStorage.setItem("user_id", response.data.data[0].user.id)
+            });
+
     }
 
 }

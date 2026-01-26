@@ -1,18 +1,10 @@
 import {Component, forwardRef, Input} from '@angular/core';
-import {
-    ControlValueAccessor,
-    FormControl,
-    NG_VALUE_ACCESSOR,
-    ReactiveFormsModule,
-    ValidationErrors
-} from "@angular/forms";
-import {KeyValuePipe} from "@angular/common";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule, ValidationErrors} from "@angular/forms";
 
 @Component({
     selector: 'app-text-field',
     imports: [
-        ReactiveFormsModule,
-        KeyValuePipe
+        ReactiveFormsModule
     ],
     providers: [
         {

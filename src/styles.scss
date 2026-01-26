@@ -1,5 +1,5 @@
 @use "abstracts" as *;
-@import 'ngx-toastr/toastr';
+@use 'ngx-toastr/toastr';
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=block');
 
 .form-fields {
@@ -16,7 +16,7 @@
 
 body {
     font-family: "Nunito Sans", sans-serif;
-    font-size: vwsize(16px);
+    font-size: vwsize(16);
     line-height: 1em;
 }
 
