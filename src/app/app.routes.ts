@@ -1,21 +1,24 @@
 import {Routes} from '@angular/router';
-import {Login} from "./domain/login/login-page/login";
-import {Signup} from "./domain/signup/signup-page/signup";
+import {Login} from "./domain/login/login";
+import {Signup} from "./domain/signup/signup";
+import {Home} from "./domain/home/home";
 import {authGuard} from "./auth-guard";
-import {Home} from "./home/home";
+import {preloaderGuard} from "./shared/guard/preloader-guard";
 
 export const routes: Routes = [
     {
         path: "login",
+        canActivate: [authGuard, preloaderGuard],
         component: Login
     },
     {
         path: "signup",
+        canActivate: [authGuard, preloaderGuard],
         component: Signup
     },
     {
         path : "",
-        canActivate: [authGuard],
+        canActivate: [authGuard, preloaderGuard],
         component : Home
     }
 ];

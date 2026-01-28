@@ -1,41 +1,43 @@
-import {Component, Input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {ToastrService} from 'ngx-toastr';
-import {inject} from '@angular/core';
-import {DefaultLoginLayout} from "../../../layouts/default-login-layout/default-login-layout";
-import {TextField} from "../../../components/fields/text-field/text-field";
-import {CheckboxField} from "../../../components/fields/checkbox-field/checkbox-field";
-import {LoginService} from "../login.service";
-import {ButtonPrimary} from "../../../components/buttons/button-primary/button-primary";
-import {Divider} from "../../../components/divider/divider";
+import {DefaultLoginLayout} from "../../layouts/default-login-layout/default-login-layout";
+import {TextField} from "../../components/fields/text-field/text-field";
+import {CheckboxField} from "../../components/fields/checkbox-field/checkbox-field";
+import {SignupService} from "./signup.service";
+import {ButtonPrimary} from "../../components/buttons/button-primary/button-primary";
+import {Divider} from "../../components/divider/divider";
 
 @Component({
-    selector: 'app-login',
+    selector: 'app-signup',
     standalone: true,
     imports: [DefaultLoginLayout, ReactiveFormsModule, TextField, CheckboxField, ButtonPrimary, Divider],
     providers: [
-        LoginService,
+        SignupService,
     ],
-    templateUrl: './login.html'
+    templateUrl: './signup.html'
 })
-export class Login {
+export class Signup {
     formGroup!: FormGroup;
     toastr = inject(ToastrService);
 
     @Input() LayoutOptions = {
-        title: "Entre na sua conta",
+        title: "Crie sua conta",
         bannerImg: "/assets/webp/login-banner.webp",
         disableSubmit: this.disableSubmit
     }
 
-    constructor(private router: Router, private loginService: LoginService) {
+    constructor(private router: Router, private signupService: SignupService) {
     }
 
     ngOnInit() {
         this.formGroup = new FormGroup({
             email: new FormControl('', {
                 validators: [Validators.required, Validators.minLength(3)],
+            }),
+            firstName: new FormControl('', {
+                validators: [Validators.minLength(3)],
             }),
             password: new FormControl('', {
                 validators: Validators.required,
@@ -48,11 +50,11 @@ export class Login {
     }
 
     submit() {
-        this.loginService.loginRequestToBackend(this.formGroup.value)
+        this.signupService.signupRequestToBackend(this.formGroup.value)
     }
 
     navigate() {
-        this.router.navigate(["/signup"]);
+        this.router.navigate(["/login"]);
     }
 
     getFieldErrors(fieldName: string): any {

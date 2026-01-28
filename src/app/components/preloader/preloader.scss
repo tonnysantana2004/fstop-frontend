@@ -1,0 +1,66 @@
+@use "abstracts" as *;
+
+.preloader-wrapper {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: fadeIn 1.5s ease forwards;
+
+    will-change: transform, opacity, gap;
+
+    & * {
+
+        will-change: transform, opacity, gap;
+    }
+}
+
+img {
+    width: 117px;
+}
+
+.preloader-bar {
+    height: 12px;
+    position: relative;
+    width: 233px;
+    background-color: $gray;
+    border-radius: 100px;
+    overflow: hidden;
+
+    & .preloader-tracker {
+        height: 100%;
+        animation: growPreloader 3s ease-in forwards;
+        background: $accent-color;
+        border-radius: 0 100px 100px 0;
+    }
+}
+
+p {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+@keyframes growPreloader {
+    0% {
+        width: 20%;
+    }
+
+    100% {
+        width: 98%
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        gap: 15px;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        gap: 21px;
+        transform: scale(1);
+    }
+}

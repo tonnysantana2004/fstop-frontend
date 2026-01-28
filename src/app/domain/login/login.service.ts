@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AxiosService} from "../../axios.service";
+import {AxiosService} from "../../shared/axios.service";
 
 @Injectable({
     providedIn: 'root',
@@ -7,7 +7,8 @@ import {AxiosService} from "../../axios.service";
 
 export class LoginService {
 
-    constructor(private axiosService: AxiosService) {}
+    constructor(private axiosService: AxiosService) {
+    }
 
     loginRequestToBackend(data: object) {
 
@@ -15,6 +16,9 @@ export class LoginService {
             .then(response => {
                 localStorage.setItem("access_token", response.data.data[0].token)
                 localStorage.setItem("user_id", response.data.data[0].user.id)
+            })
+            .catch((error) => {
+                console.log("Um erro ocorreu")
             });
 
     }

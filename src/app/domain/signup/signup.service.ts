@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {AxiosService} from "../../axios.service";
+import {AxiosService} from "../../shared/axios.service";
 
 @Injectable({
     providedIn: 'root',
