@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    animation: fadeIn 1.5s ease forwards;
+    animation: fadeIn 1.2s ease forwards;
 
     will-change: transform, opacity, gap;
 
@@ -31,7 +31,7 @@ img {
 
     & .preloader-tracker {
         height: 100%;
-        animation: growPreloader 3s ease-in forwards;
+        animation: growPreloader 2s ease-in forwards;
         background: $accent-color;
         border-radius: 0 100px 100px 0;
     }
